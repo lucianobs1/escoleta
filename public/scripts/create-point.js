@@ -46,6 +46,7 @@ document
 
 
 // Logica para adicionar e remover itens no array 
+
 const itemsCollect = document.querySelectorAll('.items-grid li');
 
 for (let item of itemsCollect) {
@@ -62,6 +63,9 @@ function handleSelectedItem(event) {
     itemLi.classList.toggle("selected");
     const itemId = itemLi.dataset.id;
 
+    console.log('item id: ', itemId);
+
+
     const alreadySelected = selectedItems.findIndex(function(item) {
         const itemFound = item == itemId;
         return itemFound;
@@ -77,5 +81,7 @@ function handleSelectedItem(event) {
     } else {
         selectedItems.push(itemId);
     }
+
+    console.log('selected item: ', selectedItems)
     collectedItems.value = selectedItems;
 }
